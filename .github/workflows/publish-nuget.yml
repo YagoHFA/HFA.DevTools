@@ -28,6 +28,6 @@ jobs:
         run: dotnet pack --configuration Release --no-build -o out
 
       - name: Publish to NuGet
-        run: dotnet nuget push "out/*.nupkg" \
-              --api-key ${{ secrets.NUGET_API_KEY }} \
+        run: dotnet nuget push out/*.nupkg |
+              --api-key ${{ secrets.NUGET_API_KEY }} |
               --source https://api.nuget.org/v3/index.json
